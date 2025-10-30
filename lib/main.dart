@@ -12,6 +12,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        theme: ThemeData(
+          pageTransitionsTheme: const PageTransitionsTheme(
+            builders: <TargetPlatform, PageTransitionsBuilder>{
+              // Set the predictive back transitions for Android.
+              TargetPlatform.android: PredictiveBackPageTransitionsBuilder(),
+            },
+          ),
+        ),
       debugShowCheckedModeBanner: false,
       initialRoute: '/ToDoAppFirstPage',
       routes: {
